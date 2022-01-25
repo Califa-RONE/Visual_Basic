@@ -31,31 +31,31 @@ Private Sub Workbook_Open()
         
         On Error GoTo Erro
         
-        If Dir("\\192.168.0.9\p&d\PDM\SolicitaÁ„o de Cadastro\Common\Consulta_Produtos\DadosProduto.xls") = "" Then
+        If Dir("\\192.168.0.9\p&d\PDM\Solicita√ß√£o de Cadastro\Common\Consulta_Produtos\DadosProduto.xls") = "" Then
             Application.DisplayAlerts = True
             Application.ScreenUpdating = True
             Application.DisplayStatusBar = True
             Application.EnableEvents = True
             ActiveSheet.DisplayPageBreaks = True
             Application.Calculation = xlCalculationAutomatic
-            resposta = MsgBox("Est· faltando a tabela DadosProduto!", vbOKOnly + vbExclamation, "Alerta")
+            resposta = MsgBox("Est√° faltando a tabela DadosProduto!", vbOKOnly + vbExclamation, "Alerta")
             Exit Sub
         End If
-        If Dir("\\192.168.0.9\p&d\PDM\SolicitaÁ„o de Cadastro\Common\Consulta_Produtos\CodEquivalentes.xls") = "" Then
+        If Dir("\\192.168.0.9\p&d\PDM\Solicita√ß√£o de Cadastro\Common\Consulta_Produtos\CodEquivalentes.xls") = "" Then
             Application.DisplayAlerts = True
             Application.ScreenUpdating = True
             Application.DisplayStatusBar = True
             Application.EnableEvents = True
             ActiveSheet.DisplayPageBreaks = True
             Application.Calculation = xlCalculationAutomatic
-            resposta = MsgBox("Est· faltando a tabela CodEquivalentes!", vbOKOnly + vbExclamation, "Alerta")
+            resposta = MsgBox("Est√° faltando a tabela CodEquivalentes!", vbOKOnly + vbExclamation, "Alerta")
             Exit Sub
         End If
         
         Set fs = CreateObject("Scripting.FileSystemObject")
-        Set f = fs.Getfile("\\192.168.0.9\p&d\PDM\SolicitaÁ„o de Cadastro\Common\Consulta_Produtos\DadosProduto.xls")
-        Set f2 = fs.Getfile("\\192.168.0.9\p&d\PDM\SolicitaÁ„o de Cadastro\Common\Consulta_Produtos\CodEquivalentes.xls")
-        Set f3 = fs.Getfile("\\192.168.0.9\p&d\PDM\SolicitaÁ„o de Cadastro\Common\Consulta_Produtos\vicunha.xlsx")
+        Set f = fs.Getfile("\\192.168.0.9\p&d\PDM\Solicita√ß√£o de Cadastro\Common\Consulta_Produtos\DadosProduto.xls")
+        Set f2 = fs.Getfile("\\192.168.0.9\p&d\PDM\Solicita√ß√£o de Cadastro\Common\Consulta_Produtos\CodEquivalentes.xls")
+        Set f3 = fs.Getfile("\\192.168.0.9\p&d\PDM\Solicita√ß√£o de Cadastro\Common\Consulta_Produtos\vicunha.xlsx")
         
         s = f.DateCreated
         s2 = f2.DateCreated
@@ -68,7 +68,7 @@ Private Sub Workbook_Open()
         If s <> wsDestino.Cells(1, 22).Value Or s2 <> wsDestino.Cells(1, 23).Value And usuario = "PDM" Or _
         usuario = "Livia Trevisoni" Or usuario = "Bruno Henrique" Then
             resposta = MsgBox("Existem dados para serem importados, deseja continuar? " + _
-            vbCrLf + vbCrLf + "(O tempo de importaÁ„o pode variar entre 30 - 60 minutos ou mais, dependendo da quantidade de dados a serem importados)", _
+            vbCrLf + vbCrLf + "(O tempo de importa√ß√£o pode variar entre 30 - 60 minutos ou mais, dependendo da quantidade de dados a serem importados)", _
             vbYesNo + vbExclamation, "Alerta")
             If resposta = vbNo Then
                 Application.DisplayAlerts = True
@@ -88,15 +88,15 @@ Private Sub Workbook_Open()
             Application.EnableEvents = True
             ActiveSheet.DisplayPageBreaks = True
             Application.Calculation = xlCalculationAutomatic
-            resposta = MsgBox("Data e hora de atualizaÁ„o dos arquivos de dados dos produtos: " + vbCrLf + vbCrLf + "Lista de produtos " & s & ";" + vbCrLf + "CÛdigos equivalentes " & s2 & ".", vbOKOnly + vbInformation, "InformaÁ„o")
+            resposta = MsgBox("Data e hora de atualiza√ß√£o dos arquivos de dados dos produtos: " + vbCrLf + vbCrLf + "Lista de produtos " & s & ";" + vbCrLf + "C√≥digos equivalentes " & s2 & ".", vbOKOnly + vbInformation, "Informa√ß√£o")
             Call Vicunha
             wsDestino.Activate
             Cells(1, 1).Select
             Exit Sub
         End If
         
-        Workbooks.Open Filename:="\\192.168.0.9\p&d\PDM\SolicitaÁ„o de Cadastro\Common\Consulta_Produtos\CodEquivalentes.xls"
-        Workbooks.Open Filename:="\\192.168.0.9\p&d\PDM\SolicitaÁ„o de Cadastro\Common\Consulta_Produtos\DadosProduto.xls"
+        Workbooks.Open Filename:="\\192.168.0.9\p&d\PDM\Solicita√ß√£o de Cadastro\Common\Consulta_Produtos\CodEquivalentes.xls"
+        Workbooks.Open Filename:="\\192.168.0.9\p&d\PDM\Solicita√ß√£o de Cadastro\Common\Consulta_Produtos\DadosProduto.xls"
         
         Set wsOrigem = Workbooks("DadosProduto.xls").Worksheets("DadosProduto")
         Set wsOrigem2 = Workbooks("CodEquivalentes.xls").Worksheets("CodEquivalentes")
@@ -155,7 +155,7 @@ Private Sub Workbook_Open()
         Wend
         
         Workbooks("CodEquivalentes.xls").Close savechanges:=False
-        resposta = MsgBox("Data e hora de atualizaÁ„o dos arquivos de dados dos produtos: " + vbCrLf + vbCrLf + "Lista de produtos " & s & "" + vbCrLf + "CÛdigos equivalentes " & s2 & ".", vbOKOnly + vbInformation, "InformaÁ„o")
+        resposta = MsgBox("Data e hora de atualiza√ß√£o dos arquivos de dados dos produtos: " + vbCrLf + vbCrLf + "Lista de produtos " & s & "" + vbCrLf + "C√≥digos equivalentes " & s2 & ".", vbOKOnly + vbInformation, "Informa√ß√£o")
         
         Call Vicunha_Saurer
         wsDestino.Activate
@@ -178,7 +178,7 @@ Erro:
         Application.Calculation = xlCalculationAutomatic
         Workbooks("DadosProduto.xls").Close savechanges:=False
         Workbooks("CodEquivalentes.xls").Close savechanges:=False
-        resposta = MsgBox("N„o foi possÌvel prosseguir com a atualizaÁ„o dos dados dos produtos, tente novamente mais tarde!", vbOKOnly + vbCritical, "ERRO")
+        resposta = MsgBox("N√£o foi poss√≠vel prosseguir com a atualiza√ß√£o dos dados dos produtos, tente novamente mais tarde!", vbOKOnly + vbCritical, "ERRO")
         ThisWorkbook.Close savechanges:=True
 End Sub
 
@@ -191,10 +191,10 @@ Public Sub Vicunha_Saurer()
     
     On Error GoTo Erro2
     
-    If Dir("\\192.168.0.9\p&d\PDM\SolicitaÁ„o de Cadastro\Common\Consulta_Produtos\vicunha.xlsx") = "" Then Exit Sub
+    If Dir("\\192.168.0.9\p&d\PDM\Solicita√ß√£o de Cadastro\Common\Consulta_Produtos\vicunha.xlsx") = "" Then Exit Sub
     
     Set fs = CreateObject("Scripting.FileSystemObject")
-    Set f = fs.Getfile("\\192.168.0.9\p&d\PDM\SolicitaÁ„o de Cadastro\Common\Consulta_Produtos\DadosProduto.xls")
+    Set f = fs.Getfile("\\192.168.0.9\p&d\PDM\Solicita√ß√£o de Cadastro\Common\Consulta_Produtos\DadosProduto.xls")
     
 Exit Sub
 Erro2:
