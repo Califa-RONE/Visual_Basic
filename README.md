@@ -1,9 +1,9 @@
 # Visual_Basic
 
-Desenvolvimento em VB durante trabalho:
+VB development at work:
 
-- Duas fotos referentes ao meu projeto dentro da empresa onde trabalho. Um Portal do RH desenvolvido em VBA para consulta de holerites, upload de arquivos e consultas em geral;
+- Two photos referring to my project within the company where I work. An HR Portal developed in VBA for consulting payslips, uploading files and general queries.
 
-- Alguns scripts para consulta em futuros projetos;
+- Some scripts for future projects.
 
-- Muitos códigos não pude inserir aqui, pois possuem informações sigilosas.
+-A lot of code I couldn't include here because it contains sensitive information.
